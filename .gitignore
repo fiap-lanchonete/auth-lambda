@@ -1,0 +1,6 @@
+*dist
+*.zip
+
+*terraform.tfstate
+*Crash.log
+*.tfplan –
