@@ -1,4 +1,4 @@
-import { ClassSerializerInterceptor, Module } from '@nestjs/common';
+import { ClassSerializerInterceptor, Global, Module } from '@nestjs/common';
 import { APP_INTERCEPTOR } from '@nestjs/core';
 import { PrismaHelper } from './adapters/database/helpers/prisma.helper';
 import { UserRepository } from './adapters/database/repositories/user.repository';
@@ -9,8 +9,10 @@ import { AuthController } from './adapters/controllers/auth.controller';
 import { config } from 'dotenv';
 import { JwtModule, JwtService } from '@nestjs/jwt';
 import { JwtStrategy } from './core/config/jwt.strategy';
+import { UserService } from './application/services/user.service';
 config()
 
+@Global()
 @Module({
   imports: [
     JwtModule.register({
@@ -22,6 +24,7 @@ config()
     AuthController
   ],
   providers: [
+    UserService,
     LoginService,
     RegisterService,
     AnonymousService,
@@ -37,5 +40,15 @@ config()
     JwtStrategy,
     PrismaHelper
   ],
+  exports: [
+    UserService,
+    JwtService,
+    JwtStrategy,
+    PrismaHelper,
+    {
+      provide: 'UserRepository',
+      useClass: UserRepository,
+    },
+  ]
 })
 export class AppModule {}

@@ -3,17 +3,25 @@ service: auth-nest-lambda
 provider:
   name: aws
   runtime: nodejs18.x
+  stage: "v1"
+
+plugins:
+  - serverless-offline
 
 functions:
   auth:
-    handler: src/adapters/controllers/auth.lambdaHandler
+    timeout: 10
+    handler: dist/main.handler
     events:
       - http:
-          path: v1/auth/login/anonymous
+          path: /auth/login/anonymous
           method: post
       - http:
-          path: v1/auth/login
+          path: /auth/login
           method: post
       - http:
-          path: v1/auth/register
+          path: /auth/register
           method: post
+      - http:
+          path: /doc
+          method: get
