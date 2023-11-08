@@ -29,7 +29,7 @@ variable "handler_name" {
 variable "runtime_version" {
   description = "Runtime version for the Lambda function"
   type = string
-  default = "python3.8"
+  default = "nodejs18x"
 }
 
 variable "timeout" {
