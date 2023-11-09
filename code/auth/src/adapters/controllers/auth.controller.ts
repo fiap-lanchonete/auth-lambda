@@ -16,7 +16,7 @@ import { LoginService } from 'src/application/usecases/login.service';
 import { RegisterService } from 'src/application/usecases/register.service';
 
 @ApiTags('Autenticação')
-@Controller('v1/auth')
+@Controller('dev/auth')
 export class AuthController {
   constructor(
     private readonly loginService: LoginService,

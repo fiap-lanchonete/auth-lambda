@@ -26,7 +26,7 @@ async function bootstrap() {
     .setVersion('1.0')
     .build();
   const document = SwaggerModule.createDocument(app, config);
-  SwaggerModule.setup('v1/doc', app, document);
+  SwaggerModule.setup('dev/doc', app, document);
 
   app.useGlobalPipes(
     new ValidationPipe({
