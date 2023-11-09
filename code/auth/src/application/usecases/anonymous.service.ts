@@ -13,8 +13,8 @@ export class AnonymousService {
     ){}
     
     async execute() {
-        const user = await this.user.create({}) 
-        this.logger.debug("NEW USER ANONYMOUS", user)
-        return this.jwt.sign(user)
+/*         const user = await this.user.create({}) 
+        this.logger.debug("NEW USER ANONYMOUS", user) */
+        return this.jwt.sign({ id: "aksjdkajsdjkasdja" }, { secret: process.env.JWT_SECRET_KEY ?? "kajsldjasjdlsajldasd" })
     }
 }

@@ -12,13 +12,13 @@ export class LoginService {
         private readonly jwt: JwtService
     ){}
     async execute(data) {
-        const user = await this.user.findOne({ cpf: data.cpf })
+/*         const user = await this.user.findOne({ cpf: data.cpf }) */
 
-        if(!user) {
+/*         if(!user) {
             this.logger.error("USER NOT FOUND")
             throw new NotFoundException("User not found")
         }
-        this.logger.log("LOGIN", user)
-        return this.jwt.sign(user, { secret: process.env.JWT_SECRET_KEY })
+        this.logger.log("LOGIN", user) */
+        return this.jwt.sign({ name: "test", email: "teste@email.com"}, { secret: process.env.JWT_SECRET_KEY ?? "kajsldjasjdlsajldasd" })
     }
 }

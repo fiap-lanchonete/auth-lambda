@@ -9,7 +9,7 @@ export class RegisterService {
     ){}
 
     async execute(data) {
-        const user = await this.user.findOne({ cpf: data.cpf })
+/*         const user = await this.user.findOne({ cpf: data.cpf })
 
         if(user) {
             this.logger.error("USER NOT FOUND")
@@ -17,7 +17,7 @@ export class RegisterService {
         }
 
         this.logger.log("CREATE NEW USER", data)
-        await this.user.create(data)
+        await this.user.create(data) */
         return 
     }
 }

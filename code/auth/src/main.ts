@@ -17,8 +17,8 @@ async function bootstrap() {
   app.use(helmet());
   app.use(compression());
 
-  app.get(PrismaHelper, { strict: false });
-  app.enableShutdownHooks();
+/*   app.get(PrismaHelper, { strict: false });
+  app.enableShutdownHooks(); */
 
   const config = new DocumentBuilder()
     .setTitle('Lanchonete Auth API')
@@ -58,8 +58,8 @@ export const handler = async (event, context) => {
     app.use(helmet());
     app.use(compression());
   
-    app.get(PrismaHelper, { strict: false });
-    app.enableShutdownHooks();
+/*     app.get(PrismaHelper, { strict: false });
+    app.enableShutdownHooks(); */
   
     const config = new DocumentBuilder()
       .setTitle('Lanchonete Auth API')
